@@ -11,6 +11,9 @@ gem 'rails', '~> 6.1.4'
 # Use pg as database
 gem 'pg'
 
+# Use carrierwave for uploader
+gem 'carrierwave', '1.3.2'
+
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
