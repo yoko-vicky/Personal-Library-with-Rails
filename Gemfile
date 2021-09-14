@@ -47,6 +47,12 @@ group :development do
 end
 
 group :test do
+
+  gem 'rspec-rails'
+  gem 'faker'
+  # for assert_template
+  gem 'rails-controller-testing'
+
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
