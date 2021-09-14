@@ -16,8 +16,9 @@
     <% @images.each do |image| %>
       <tr>
         <td><%= image.name %></td>
-        <td><%= image.file %></td>
+        <td><img src="<%= image.file.url %>" alt="<%= image.name %>"></td>
         <td><%= image.description %></td>
+        <td><%= image.tags.pluck(:name).join(', ') %></td>
         <td><%= link_to 'Show', image %></td>
         <td><%= link_to 'Edit', edit_image_path(image) %></td>
         <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
