@@ -8,7 +8,9 @@ Here is the layout you may use as reference: [BowerTest Figma](https://www.figma
 
 Here's a quick introduction Loom of what we are looking for from BowerTest. 
 Ps: If you're not a video person, there's a lengthy boring text after this 😜
+
 [![BowerTest Quick Intro](https://i.imgur.com/M8xSWIl.gif)](https://www.loom.com/share/e1f087ec5b624ded8ac98a0f54ec2ff3 "BowerTest Quick Intro")
+
 
 **Some key notes**
 
