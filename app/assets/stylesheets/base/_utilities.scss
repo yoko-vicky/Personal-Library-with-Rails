@@ -1,0 +1,9 @@
+@import './abstracts/variables';
+
+.max-width-medium {
+  max-width: $max-width-medium;
+}
+
+.p-80 {
+  padding: 6rem 8rem;
+}

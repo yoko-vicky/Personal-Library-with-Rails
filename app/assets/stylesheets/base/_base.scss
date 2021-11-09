@@ -1,0 +1,73 @@
+@import './abstracts/variables';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+}
+
+body {
+  font-family: $font-family;
+  font-size: 1.6rem;
+  box-sizing: border-box;
+  line-height: 1.9;
+  color: $black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family;
+  line-height: 1.3;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+// a {
+//   text-decoration: none;
+//   transition: all 0.4s;
+
+//   &:hover {
+//     opacity: 0.7;
+//   }
+// }
+
+// ul,
+// ol {
+//   list-style: none;
+//   padding: 0;
+//   margin: 0;
+// }
+
+img {
+  max-width: 100%;
+}
+
+input,
+button,
+textarea {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+main {
+  min-height: 100vh;
+}

@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+// COLORS
+$black: #333;
+
+// WIDTHS/HEIGHTS
+$max-width-medium: 820px;
+
+// FONTS
+$font-family: 'Inter', sans-serif;
+
+// MEDIA QUERY
+// Breakpoint	Dimensions of Bootstrap
+// X-Small	None	<576px
+// Small	sm	≥576px
+// Medium	md	≥768px
+// Large	lg	≥992px
+// Extra large	xl	≥1200px
+// Extra extra large	xxl	≥1400px
+
+@mixin mq($breakpoint) {
+  @if $breakpoint==xs {
+    @media only screen and (max-width: 576px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==sm {
+    @media only screen and (min-width: 576px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==md {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==lg {
+    @media only screen and (min-width: 992px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==xl {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==xxl {
+    @media only screen and (min-width: 1400px) {
+      @content;
+    }
+  }
+}
