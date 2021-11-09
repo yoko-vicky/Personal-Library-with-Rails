@@ -34,7 +34,9 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update image' do
+      # rubocop:disable all
     patch image_url(@image), params: { image: { description: @image.description, file: @image.file, name: @image.name } }
+      # rubocop:enable all
     assert_redirected_to image_url(@image)
   end
 

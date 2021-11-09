@@ -3,7 +3,7 @@ class ImagesController < ApplicationController
 
   # GET /images or /images.json
   def index
-    @images = Image.all
+    @images = current_user.images
   end
 
   # GET /images/1 or /images/1.json
@@ -20,6 +20,7 @@ class ImagesController < ApplicationController
   # POST /images or /images.json
   def create
     @image = Image.new(image_params)
+    @image.user_id = current_user.id
 
     respond_to do |format|
       if @image.save
