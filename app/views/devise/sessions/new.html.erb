@@ -1,4 +1,5 @@
-<h1><%= t('.sign_in') %></h1>
+<h1>Sign in to BowerBird</h1>
+ <%# t('.sign_in') %>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-group">
@@ -21,7 +22,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.submit  t('.sign_in'), class: 'btn btn-primary' %>
+    <%= f.submit 'Sign In', class: 'btn btn-primary' %>
   </div>
 <% end %>
 
