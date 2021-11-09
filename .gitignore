@@ -39,6 +39,7 @@
 yarn-debug.log*
 .yarn-integrity
 
+/public/uploads
 
 # For Mac ----------------------------------------------------------->>
 # General
