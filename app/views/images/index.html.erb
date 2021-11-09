@@ -5,7 +5,6 @@
     <tr>
       <th>Name</th>
       <th>File</th>
-      <th>Description</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,7 +14,6 @@
       <tr>
         <td><%= image.name %></td>
         <td><img src="<%= image.file.url %>" alt="<%= image.name %>"></td>
-        <td><%= image.description %></td>
         <td><%= image.tags.pluck(:name).join(', ') %></td>
         <td><%= link_to 'Show', image %></td>
         <td><%= link_to 'Edit', edit_image_path(image) %></td>
