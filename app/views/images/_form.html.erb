@@ -1,15 +1,5 @@
 <%= form_with model: image, multipart: true do |form| %>
-  <% if image.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(image.errors.count, "error") %> prohibited this image from being saved:</h2>
-
-      <ul>
-        <% image.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render "shared/errors", obj: image.errors %>
 
   <div class="field">
     <%= form.label :name %>
