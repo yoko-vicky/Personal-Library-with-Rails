@@ -1,3 +1,9 @@
 // Place all the styles related to the Images controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.images {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 2rem;
+  object-fit: cover;
+}
