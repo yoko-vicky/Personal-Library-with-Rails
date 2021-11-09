@@ -3,7 +3,7 @@ class ImagesController < ApplicationController
 
   # GET /images or /images.json
   def index
-    @images = current_user.images
+    @images = current_user.images.page(params[:page]).per(10)
   end
 
   # GET /images/1 or /images/1.json

@@ -1,9 +1,20 @@
 // Place all the styles related to the Images controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import './abstracts/variables';
 .images {
   width: 8rem;
   height: 8rem;
   border-radius: 2rem;
   object-fit: cover;
+}
+
+.page-item.active .page-link {
+  background-color: $black;
+  border-color: $black;
+}
+
+.page-link {
+  color: $black;
+  padding: 0.25rem 1.5rem;
 }

@@ -27,11 +27,23 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Use devise to manage user's login/signup
 gem 'devise'
+
+# Apply bootstrap to devise views quickly
 gem 'devise-bootstrap-views', '~> 1.0'
+
+# Use fontawesome icons
 gem 'font-awesome-rails'
+
+# Connect aws s3
 gem 'fog-aws'
+
+# Use env file to manage sensitive data
 gem 'dotenv-rails'
+
+# Add pagenation
+gem 'kaminari'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
