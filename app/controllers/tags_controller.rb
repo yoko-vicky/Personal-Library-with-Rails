@@ -3,7 +3,7 @@ class TagsController < ApplicationController
 
   # GET /tags or /tags.json
   def index
-    @tags = Tag.all
+    @tags = Tag.all.page(params[:page]).per(10)
   end
 
   # GET /tags/1 or /tags/1.json

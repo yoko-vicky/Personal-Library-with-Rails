@@ -1,27 +1,13 @@
-<h1>Tags</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Total Images</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tags.each do |tag| %>
-      <tr>
-        <td><%= tag.name %></td>
-        <td><%= tag.images.count %></td>
-        <td><%= link_to 'Show', tag %></td>
-        <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-        <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Tag', new_tag_path %>
+<div class="bg-white rounded-x shadow-x pb-5">
+  <div class="p-7">
+    <div class="heading d-flex align-items-center mb-5">
+      <h1 class="me-3 fw-normal">Tags</h1>
+      <%= link_to new_tag_path, class:"add-image-icon shadow-x d-flex justify-content-center align-items-center text-dark ms-3" do %>
+        <%= fa_icon "plus" %>
+      <% end %>
+    </div>
+    <%= render "shared/search" %>
+  </div>
+  <%= render "tags/tags", tags: @tags %>
+  <%= paginate @tags %>
+</div>

@@ -1,0 +1,39 @@
+<div class="table-responsive mb-5">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" class="fw-bold">
+          Tag <%= fa_icon "chevron-down", class: 'class' %>
+        </th>
+        <th scope="col" class="text-center">Total Images</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tags.each do |tag| %>
+          <tr>
+            <td>
+              <div class="fw-bold font-20"><%= tag.name %></div>
+            </td>
+            <td class="text-center">
+              <%= tag.images.pluck(:name).count %>
+            </td>
+            <td class="d-flex justify-content-end">
+              <ul class="navbar-nav actions-menu">
+                <li class="dropdown">
+                  <a class="nav-link dropdown-toggle text-dark rounded-x shadow-x" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Actions <%= fa_icon "ellipsis-v", class: 'me-1' %>
+                  </a>
+                  <ul class="dropdown-menu rounded-x shadow-x border-0">
+                    <li><%= link_to 'View', tag, class: 'dropdown-item' %></li>
+                    <li><%= link_to 'Edit', edit_tag_path(tag), class: 'dropdown-item' %></li>
+                    <li><%= link_to 'Delete', tag, method: :delete, data: { confirm: 'Are you sure?' }, class: 'dropdown-item' %></li>
+                  </ul>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>

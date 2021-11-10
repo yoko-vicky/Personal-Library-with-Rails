@@ -76,6 +76,10 @@ table th {
   font-weight: 400;
 }
 
-.table>:not(caption)>*>* {
+.table > :not(caption) > * > th {
   padding: 1rem;
+}
+
+.table > :not(caption) > * > td {
+  padding: 1.4rem;
 }
