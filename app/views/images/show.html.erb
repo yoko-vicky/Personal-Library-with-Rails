@@ -1,12 +1,32 @@
-<p>
-  <strong>Name:</strong>
-  <%= @image.name %>
-</p>
+<div class="container-lg bg-white rounded-x shadow-x">
+  <div class="p-7 pb-5">
+    <div class="heading d-flex align-items-center">
+      <h1 class="me-3 fw-normal">Images / <%= @image.name %></h1>
+    </div>
+  </div>
 
-<p>
-  <strong>File:</strong>
-  <%= @image.file %>
-</p>
+  <div class="show-container p-7 pt-0 d-flex gap-20">
+    <div class="show-container__image">
+      <img src="<%= @image.file.url %>" alt="<%= @image.name %>" class="image rounded-x">
+    </div>
 
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+    <div class="show-container__text">
+      <h2><%= @image.name %></h2>
+      <div class="show-container__image-size mb-3">
+        <%= @file_size %> KB
+      </div>
+
+      <div class="d-flex gap-16 mb-4">
+        <%= link_to 'Edit', edit_image_path(@image), class: 'btn btn-light bg-white shadow-x rounded-x font-16' %>
+        <%= link_to image_path(@image), method: :delete, class: 'btn btn-light bg-white shadow-x rounded-x font-16' do %>
+          <%= fa_icon "trash" %> Delete
+        <% end %>
+      </div>
+
+      <div class="show-container__tags">
+        <div>Tags</div>
+        <%= render partial: "tags/tag", collection: @tags %>
+      </div>
+    </div>
+  </div>
+</div>

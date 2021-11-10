@@ -75,3 +75,7 @@ main {
 table th {
   font-weight: 400;
 }
+
+.table>:not(caption)>*>* {
+  padding: 1rem;
+}

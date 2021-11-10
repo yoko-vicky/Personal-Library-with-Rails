@@ -8,10 +8,10 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="justify-content-end collapse navbar-collapse" id="navbarScroll">
-        <%= link_to "#", class: "nav-link d-flex align-items-center text-white" do %>
+        <%= link_to images_path, class: "nav-link d-flex align-items-center text-white" do %>
           <%= fa_icon "image", class: 'me-1' %>Images
         <% end %>
-        <%= link_to "#", class: "nav-link d-flex align-items-center text-white" do %>
+        <%= link_to tags_path, class: "nav-link d-flex align-items-center text-white" do %>
           <%= fa_icon "hashtag" %> Tags
         <% end %>
         <%= link_to destroy_user_session_path, method: :delete, class: "nav-link d-flex align-items-center text-white" do %>

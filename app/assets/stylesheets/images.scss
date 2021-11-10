@@ -3,9 +3,9 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import './abstracts/variables';
 .images {
-  width: 8rem;
-  height: 8rem;
-  border-radius: 2rem;
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 0.8rem;
   object-fit: cover;
 }
 
@@ -58,4 +58,20 @@
 
 .actions-menu .dropdown-item {
   font-size: 1.6rem;
+}
+
+// Show
+.show-container {
+
+  &__image{
+    width: 35rem;
+    height: 35rem;
+
+    .image {
+      object-fit: cover;
+    }
+  }
+  &__image-size {
+    font-size: 1.4rem;
+  }
 }

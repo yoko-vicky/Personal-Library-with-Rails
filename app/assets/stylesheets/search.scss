@@ -1,7 +1,6 @@
 @import './abstracts/variables';
 
 .search-form {
-  gap: 2rem;
   height: 4rem;
   &__input {
     font-size: 1.6rem;
@@ -13,5 +12,9 @@
   &__button {
     width: 4rem;
     height: 4rem;
+
+    .fa-search {
+      font-size: 1.5rem;
+    }
   }
 }

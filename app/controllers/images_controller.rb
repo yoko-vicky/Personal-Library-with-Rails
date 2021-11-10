@@ -7,7 +7,12 @@ class ImagesController < ApplicationController
   end
 
   # GET /images/1 or /images/1.json
-  def show; end
+  def show
+    # @file_name = @image.file.file.filename
+    # update_image_uri(@file_name)
+    @file_size = file_size(@image)
+    @tags = @image.tags.pluck(:name)
+  end
 
   # GET /images/new
   def new
@@ -25,8 +30,6 @@ class ImagesController < ApplicationController
       if @image.save
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
-      # @file_name = @image.file.file.filename
-
       # Tagging
       # 0. Retreive URL of the image file in S3: @image.file
       # 1. Based on the image file url of the S3, send a request to Clarifi, retrive taggings as an array
