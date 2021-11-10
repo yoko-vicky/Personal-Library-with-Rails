@@ -11,14 +11,14 @@ end
 # create 15 images with glass buildings
 if Tag.find_by(name: 'Glass').images.size < 15
   15.times { |index|
-    Tag.find_by(name: 'Glass').images.create(name: "Glass building #{index + 1}", remote_file_url: 'https://loremflickr.com/300/300/Glass-building', user_id: 1)
+    Tag.find_by(name: 'Glass').images.create(name: "Glass building #{index + 1}", remote_file_url: 'https://loremflickr.com/300/300/Glass-building')
   }
 end
 
 # create 15 images with concrete buildings
 if Tag.find_by(name: 'Concrete').images.size < 15
   15.times { |index|
-    Tag.find_by(name: 'Concrete').images.create(name: "Concrete building #{index + 1}", remote_file_url: 'https://loremflickr.com/300/300/Concrete-building', user_id: 1)
+    Tag.find_by(name: 'Concrete').images.create(name: "Concrete building #{index + 1}", remote_file_url: 'https://loremflickr.com/300/300/Concrete-building')
   }
 end
 

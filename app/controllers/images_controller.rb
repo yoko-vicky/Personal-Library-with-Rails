@@ -3,7 +3,7 @@ class ImagesController < ApplicationController
 
   # GET /images or /images.json
   def index
-    @images = current_user.images.page(params[:page]).per(10)
+    @images = Image.all.page(params[:page]).per(10)
   end
 
   # GET /images/1 or /images/1.json
@@ -20,12 +20,18 @@ class ImagesController < ApplicationController
   # POST /images or /images.json
   def create
     @image = Image.new(image_params)
-    @image.user_id = current_user.id
 
     respond_to do |format|
       if @image.save
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
+      # @file_name = @image.file.file.filename
+
+      # Tagging
+      # 0. Retreive URL of the image file in S3: @image.file
+      # 1. Based on the image file url of the S3, send a request to Clarifi, retrive taggings as an array
+      # 2. Create each Tag based on taggings array
+      # 3. Make a connection by posting ImageTag row to ImageTag through table
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @image.errors, status: :unprocessable_entity }
