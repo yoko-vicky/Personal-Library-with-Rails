@@ -83,3 +83,7 @@ table th {
 .table > :not(caption) > * > td {
   padding: 1.4rem;
 }
+
+input.form-control::placeholder {
+  color: $lightgrey;
+}

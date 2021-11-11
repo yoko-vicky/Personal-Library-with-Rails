@@ -1,14 +1,18 @@
 <%= render "shared/errors", obj: image %>
 
 <%= form_with model: image, multipart: true do |form| %>
-  <div class="field">
-    <%= form.label :name, {class: "label"} %>
-    <%= form.text_field :name, required: true %>
+  <div class="mb-5">
+    <%= form.label 'Title', {class: "form-label"} %>
+    <%= form.text_field :name,
+    required: true,
+    class: 'form-control font-20',
+    placeholder: 'Sydney Opera House' %>
   </div>
 
-  <div class="field">
+  <div class="mb-5">
+    <%= form.label 'Image', {class: "form-label"} %><br>
     <% if image.file %>
-      <img src="<%= image.file.url %>" alt="<%= image.name %>" class="image rounded-x">
+      <img src="<%= image.file.url %>" alt="<%= image.name %>" class="image form-image rounded-x d-block text-center m-auto mb-5">
     <% end %>
     <%= form.label :file %>
     <% if btn_msg === 'Upload' %>
@@ -19,7 +23,7 @@
     <%= form.hidden_field :file_cache %>
   </div>
 
-  <div class="actions">
-    <%= form.submit btn_msg, class: 'button' %>
+  <div class="mb-5">
+    <%= form.submit btn_msg, class: 'btn btn-dark font-16 float-end p-3 rounded-x shadow-x' %>
   </div>
 <% end %>
