@@ -7,7 +7,9 @@ class TagsController < ApplicationController
   end
 
   # GET /tags/1 or /tags/1.json
-  def show; end
+  def show
+    @tag_images = @tag.images.page(params[:page]).per(10)
+  end
 
   # GET /tags/new
   def new
