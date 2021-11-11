@@ -10,4 +10,3 @@ import 'custom/helper';
 
 Rails.start();
 ActiveStorage.start();
-

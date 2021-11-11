@@ -6,7 +6,11 @@
     <div class="fw-bold font-20"><%= image.name %></div>
     <div class="font-14"><%= file_size(image) %> KB</div>
   </td>
-  <td><%= render partial: "tags/tag", collection: image_tags_list(image) %></td>
+  <td>
+    <% if image.tags %>
+      <%= render partial: "tags/tag", collection: image_tags_list(image) %>
+    <% end %>
+  </td>
   <td class="text-center">
     <%= image_tags_num(image) %>
   </td>

@@ -5,21 +5,24 @@
     <%= form.label 'Title', {class: "form-label"} %>
     <%= form.text_field :name,
     required: true,
-    class: 'form-control font-20',
+    class: 'form-control font-20 rounded-x',
     placeholder: 'Sydney Opera House' %>
   </div>
 
   <div class="mb-5">
-    <%= form.label 'Image', {class: "form-label"} %><br>
-    <% if image.file %>
+    <%= form.label 'Image', { class: "form-label" } %><br>
+
+    <% if image.file.url %>
       <img src="<%= image.file.url %>" alt="<%= image.name %>" class="image form-image rounded-x d-block text-center m-auto mb-5">
     <% end %>
-    <%= form.label :file %>
-    <% if btn_msg === 'Upload' %>
-      <%= form.file_field :file, required: true %>
-    <% else %>
-      <%= form.file_field :file %>
+
+    <%= form.file_field :file do %>
+    <p class="d-flex align-items-center">
+      <span class="font-20">Drop an image here or<br>Browse from your computer</span>
+      <%= fa_icon "picture-o" %>
+    </p>
     <% end %>
+
     <%= form.hidden_field :file_cache %>
   </div>
 

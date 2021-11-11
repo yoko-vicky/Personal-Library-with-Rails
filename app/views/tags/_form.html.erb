@@ -1,12 +1,12 @@
 <%= render "shared/errors", obj: tag %>
 
 <%= form_with(model: tag) do |form| %>
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="mb-5">
+    <%= form.label 'Tag Title', {class: "form-label"} %>
+    <%= form.text_field :name, required: true, class: 'form-control font-20 rounded-x' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="mb-5">
+    <%= form.submit 'Add Tag', class: 'btn btn-dark font-16 float-end p-3 rounded-x shadow-x' %>
   </div>
 <% end %>
