@@ -3,15 +3,19 @@
 <%= form_with model: image, multipart: true do |form| %>
   <div class="field">
     <%= form.label :name, {class: "label"} %>
-    <%= form.text_field :name, :required => true %>
+    <%= form.text_field :name, required: true %>
   </div>
 
   <div class="field">
     <% if image.file %>
-      <img src="<%= @image.file.url %>" alt="<%= @image.name %>" class="image rounded-x">
+      <img src="<%= image.file.url %>" alt="<%= image.name %>" class="image rounded-x">
     <% end %>
     <%= form.label :file %>
-    <%= form.file_field :file, :required => true %>
+    <% if btn_msg === 'Upload' %>
+      <%= form.file_field :file, required: true %>
+    <% else %>
+      <%= form.file_field :file %>
+    <% end %>
     <%= form.hidden_field :file_cache %>
   </div>
 

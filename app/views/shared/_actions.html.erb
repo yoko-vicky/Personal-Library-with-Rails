@@ -1,0 +1,12 @@
+<ul class="navbar-nav actions-menu">
+  <li class="dropdown">
+    <a class="nav-link dropdown-toggle text-dark rounded-x shadow-x" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Actions <%= fa_icon "ellipsis-v", class: 'me-1' %>
+    </a>
+    <ul class="dropdown-menu rounded-x shadow-x border-0">
+      <li><%= link_to 'View', model, class: 'dropdown-item' %></li>
+      <li><%= link_to 'Edit', edit_path, class: 'dropdown-item' %></li>
+      <li><%= link_to 'Delete', model, method: :delete, data: { confirm: 'Are you sure?' }, class: 'dropdown-item' %></li>
+    </ul>
+  </li>
+</ul>
