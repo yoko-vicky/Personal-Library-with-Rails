@@ -21,37 +21,32 @@ class TagsController < ApplicationController
   def create
     @tag = Tag.new(tag_params)
 
-    respond_to do |format|
-      if @tag.save
-        format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
-        format.json { render :show, status: :created, location: @tag }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @tag.errors, status: :unprocessable_entity }
-      end
+    if @tag.save
+      flash[:notice] = 'Tag was successfully created.'
+      redirect_to tag_path(@tag)
+    else
+      # @tag.errors
+      flash[:alert] = 'Something is wrong'
+      render 'new'
     end
   end
 
   # PATCH/PUT /tags/1 or /tags/1.json
   def update
-    respond_to do |format|
-      if @tag.update(tag_params)
-        format.html { redirect_to @tag, notice: 'Tag was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tag }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @tag.errors, status: :unprocessable_entity }
-      end
+    if @tag.update(tag_params)
+      flash[:notice] = 'Tag was successfully updated.'
+      redirect_to tag_path(@tag)
+    else
+      flash[:alert] = 'Something is wrong'
+      render 'edit'
     end
   end
 
   # DELETE /tags/1 or /tags/1.json
   def destroy
     @tag.destroy
-    respond_to do |format|
-      format.html { redirect_to tags_url, notice: 'Tag was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:notice] = 'Tag was successfully deleted.'
+    redirect_to tags_path
   end
 
   private
