@@ -13,7 +13,7 @@
     <div class="show-container__text">
       <h2><%= @image.name %></h2>
       <div class="show-container__image-size mb-3">
-        <%= @file_size %> KB
+        <%= file_size(@image) %> KB
       </div>
 
       <div class="d-flex gap-16 mb-4">
@@ -25,7 +25,7 @@
 
       <div class="show-container__tags">
         <div>Tags</div>
-        <%= render partial: "tags/tag", collection: @tags %>
+        <%= render partial: "tags/tag", collection: image_tags_list(@image) %>
       </div>
     </div>
   </div>

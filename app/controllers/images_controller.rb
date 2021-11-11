@@ -5,16 +5,10 @@ class ImagesController < ApplicationController
   def index
     @images = current_user.images.page(params[:page]).per(10)
     @tags = current_user.tags
-    @all_images_num = current_user.images.count
   end
 
   # GET /images/1 or /images/1.json
-  def show
-    # @file_name = @image.file.file.filename
-    # update_image_uri(@file_name)
-    @file_size = file_size(@image)
-    @tags = @image.tags.pluck(:name)
-  end
+  def show; end
 
   # GET /images/new
   def new

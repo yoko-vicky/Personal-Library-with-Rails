@@ -12,24 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <% images.each do |image| %>
-          <tr>
-            <td class="d-flex justify-content-end">
-              <img src="<%= image.file.url %>" alt="<%= image.name %>" class="images ms-auto">
-            </td>
-            <td>
-              <div class="fw-bold font-20"><%= image.name %></div>
-              <div class="font-14"><%= file_size(image) %> KB</div>
-            </td>
-            <td><%= render partial: "tags/tag", collection: image.tags.pluck(:name) %></td>
-            <td class="text-center">
-              <%= image.tags.count %>
-            </td>
-            <td>
-              <%= render partial: "shared/actions", locals: { model: image, edit_path: edit_image_path(image) } %>
-            </td>
-          </tr>
-        <% end %>
+      <%= render partial: "images/image", collection: images %>
     </tbody>
   </table>
 </div>

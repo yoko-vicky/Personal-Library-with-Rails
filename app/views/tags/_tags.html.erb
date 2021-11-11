@@ -16,7 +16,7 @@
               <div class="fw-bold font-20"><%= tag.name %></div>
             </td>
             <td class="text-center">
-              <%= tag.images.pluck(:name).count %>
+              <%= tag_images_num(tag) %>
             </td>
             <td class="d-flex justify-content-end">
               <%= render partial: "shared/actions", locals: { model: tag, edit_path: edit_tag_path(tag) } %>
