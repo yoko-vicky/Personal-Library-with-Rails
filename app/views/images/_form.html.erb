@@ -1,17 +1,21 @@
-<%= form_with model: image, multipart: true do |form| %>
-  <%= render "shared/errors", obj: image.errors %>
+<%= render "shared/errors", obj: image %>
 
+<%= form_with model: image, multipart: true do |form| %>
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name, {class: "label"} %>
     <%= form.text_field :name, :required => true %>
   </div>
 
   <div class="field">
+    <% if image.file %>
+      <img src="<%= @image.file.url %>" alt="<%= @image.name %>" class="image rounded-x">
+    <% end %>
     <%= form.label :file %>
     <%= form.file_field :file, :required => true %>
+    <%= form.hidden_field :file_cache %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit btn_msg, class: 'button' %>
   </div>
 <% end %>

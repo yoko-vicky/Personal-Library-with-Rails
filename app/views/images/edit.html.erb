@@ -1,6 +1,5 @@
 <h1>Editing Image</h1>
-
-<%= render 'form', image: @image %>
+<%= render partial: "form", :locals => { :btn_msg => 'Update', :image => @image } %>
 
 <%= link_to 'Show', @image %> |
 <%= link_to 'Back', images_path %>
