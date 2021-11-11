@@ -16,12 +16,13 @@
       <img src="<%= image.file.url %>" alt="<%= image.name %>" class="image form-image rounded-x d-block text-center m-auto mb-5">
     <% end %>
 
-    <%= form.file_field :file, class: 'dropzone' do %>
-      <p class="d-flex align-items-center">
+    <div class="fallback">
+      <p>
         <span class="font-20">Drop an image here or<br>Browse from your computer</span>
         <%= fa_icon "picture-o" %>
       </p>
-    <% end %>
+      <%= form.file_field :file, class: 'dropzone' %>
+    </div>
 
     <%= form.hidden_field :file_cache %>
   </div>
@@ -31,15 +32,7 @@
   </div>
 <% end %>
 
-
 <script>
-  $(function() {
-    // disable auto discover
-    Dropzone.autoDiscover = false;
-
-    $(".dropzone").dropzone({
-      maxFilesize: 1,
-      addRemoveLinks: true
-    });
-  });
+  const container = document.querySelector('#template-container').innerHTML
+  consolee.log(container)
 </script>

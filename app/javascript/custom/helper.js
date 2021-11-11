@@ -1,6 +1,18 @@
 console.log('Hi there');
 
 // =======================
+// DRAG & DROP
+// =======================
+// $(function () {
+//   // disable auto discover
+//   Dropzone.autoDiscover = false;
+
+//   $('.dropzone').dropzone({
+//     maxFilesize: 1,
+//     addRemoveLinks: true,
+//   });
+// });
+// =======================
 // SEND A REQUEST
 // =======================
 // const raw = JSON.stringify({
