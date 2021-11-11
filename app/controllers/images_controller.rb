@@ -3,7 +3,7 @@ class ImagesController < ApplicationController
 
   # GET /images or /images.json
   def index
-    @images = Image.all.page(params[:page]).per(10)
+    @images = current_user.images.page(params[:page]).per(10)
   end
 
   # GET /images/1 or /images/1.json
@@ -16,7 +16,7 @@ class ImagesController < ApplicationController
 
   # GET /images/new
   def new
-    @image = Image.new
+    @image = current_user.images.new
   end
 
   # GET /images/1/edit
@@ -26,7 +26,7 @@ class ImagesController < ApplicationController
 
   # POST /images or /images.json
   def create
-    @image = Image.new(image_params)
+    @image = current_user.images.new(image_params)
 
     if @image.save
       flash[:notice] = 'Image was successfully created.'
@@ -65,7 +65,7 @@ class ImagesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_image
-    @image = Image.find(params[:id])
+    @image = current_user.images.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.

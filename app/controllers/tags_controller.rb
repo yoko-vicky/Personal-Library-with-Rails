@@ -3,7 +3,7 @@ class TagsController < ApplicationController
 
   # GET /tags or /tags.json
   def index
-    @tags = Tag.all.page(params[:page]).per(10)
+    @tags = current_user.tags.all.page(params[:page]).per(10)
   end
 
   # GET /tags/1 or /tags/1.json
@@ -13,7 +13,7 @@ class TagsController < ApplicationController
 
   # GET /tags/new
   def new
-    @tag = Tag.new
+    @tag = current_user.tags.new
   end
 
   # GET /tags/1/edit
@@ -21,7 +21,7 @@ class TagsController < ApplicationController
 
   # POST /tags or /tags.json
   def create
-    @tag = Tag.new(tag_params)
+    @tag = current_user.tags.new(tag_params)
 
     if @tag.save
       flash[:notice] = 'Tag was successfully created.'
@@ -55,7 +55,7 @@ class TagsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_tag
-    @tag = Tag.find(params[:id])
+    @tag = current_user.tags.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
