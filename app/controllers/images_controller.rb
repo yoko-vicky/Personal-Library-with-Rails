@@ -4,6 +4,8 @@ class ImagesController < ApplicationController
   # GET /images or /images.json
   def index
     @images = current_user.images.page(params[:page]).per(10)
+    @tags = current_user.tags
+    @all_images_num = current_user.images.count
   end
 
   # GET /images/1 or /images/1.json

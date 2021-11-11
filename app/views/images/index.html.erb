@@ -1,12 +1,21 @@
 <div class="bg-white rounded-x shadow-x pb-5">
   <div class="p-7">
-    <div class="heading d-flex align-items-center">
+    <div class="heading d-flex align-items-center mb-5">
       <h1 class="me-3 fw-normal">Images</h1>
       <%= link_to new_image_path, class:"add-item-icon shadow-x d-flex justify-content-center align-items-center text-dark ms-3" do %>
         <%= fa_icon "plus" %>
       <% end %>
     </div>
-    <div>here should be tags</div>
+    <div class="header-tags mb-5 d-flex gap-16">
+        <%= link_to images_path, class: 'btn btn-light shadow-x bg-white rounded-50 font-16 py-3 px-4 fw-bold' do %>
+          ALL (<%= @all_images_num %>)
+        <% end %>
+      <% @tags.each do |tag| %>
+        <%= link_to tag_path(tag), class: 'btn btn-light shadow-x bg-white rounded-50 font-16 py-3 px-4' do %>
+          <%= tag.name  %> (<%= tag.images.count %>)
+        <% end %>
+      <% end %>
+    </div>
     <%= render "shared/search" %>
   </div>
   <%= render "images/images", images: @images %>
