@@ -1,0 +1,9 @@
+<% if order == 'desc' %>
+  <%= link_to images_path(sort_by: 'asc'), class: 'sort-by-name' do %>
+    Name <%= fa_icon "chevron-up" %>
+  <% end %>
+<% else %>
+  <%= link_to images_path(sort_by: 'desc'), class: 'sort-by-name' do %>
+    Name <%= fa_icon "chevron-down" %>
+  <% end %>
+<% end %>

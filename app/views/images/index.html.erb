@@ -18,6 +18,6 @@
     </div>
     <%= render "shared/search", path: images_path %>
   </div>
-  <%= render "images/images", images: @images %>
+  <%= render partial: "images/images", locals: { images: @images, current: 'images' } %>
   <%= paginate @images %>
 </div>

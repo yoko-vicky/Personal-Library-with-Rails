@@ -16,4 +16,5 @@ class Image < ApplicationRecord
   def self.sort_by_order(order)
     order == 'desc' ? sort_by_name_desc : sort_by_name_asc
   end
+
 end

@@ -8,6 +8,6 @@
     </div>
     <%= render "shared/search", path: tag_path(@tag) %>
   </div>
-  <%= render "images/images", images: @tag_images %>
+  <%= render partial: "images/images", locals: { images: @tag_images, tag: @tag, current: 'tag_images' } %>
   <%= paginate @tag_images %>
 </div>

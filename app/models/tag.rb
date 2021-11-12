@@ -11,6 +11,12 @@ class Tag < ApplicationRecord
     order == 'asc' ? images.sort_by_name_asc : images.sort_by_name_desc
   end
 
+  def images_search_by(keyword)
+    images unless keyword
+
+    images.search_by(keyword) || images
+  end
+
   def self.add_pagenation(param)
     page(param).per(10)
   end

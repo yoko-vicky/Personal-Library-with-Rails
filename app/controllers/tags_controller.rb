@@ -10,7 +10,9 @@ class TagsController < ApplicationController
 
   # GET /tags/1 or /tags/1.json
   def show
-    @tag_images = @tag.images_sort_by('asc').add_pagenation(params[:page])
+    @order = params[:sort_by] || 'asc'
+    @keyword = params[:search] ? params[:search].strip.downcase : ''
+    @tag_images = @tag.images.search_by(@keyword).sort_by_order(@order).add_pagenation(params[:page])
   end
 
   # GET /tags/new

@@ -5,14 +5,10 @@
         <th scope="col"></th>
         <th scope="col" class="fw-bold">
           <%# link_to('name', 'javascript:void(0);', onclick: "console.log('test')") %>
-          <% if @order == 'desc' %>
-            <%= link_to images_path(sort_by: 'asc'), class: 'sort-by-name' do %>
-              Name <%= fa_icon "chevron-up" %>
-            <% end %>
-          <% else %>
-            <%= link_to images_path(sort_by: 'desc'), class: 'sort-by-name' do %>
-              Name <%= fa_icon "chevron-down" %>
-            <% end %>
+          <% if current == 'images' %>
+            <%= render 'images/sort', order: @order %>
+          <% elsif current == 'tag_images' %>
+            <%= render partial: 'tags/sort', locals: { order: @order, tag: tag } %>
           <% end %>
         </th>
         <th scope="col">Tags</th>
