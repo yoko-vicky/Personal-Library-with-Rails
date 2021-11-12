@@ -2,8 +2,16 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col" class="fw-bold">
-          Tag <%= fa_icon "chevron-down", class: 'class' %>
+        <th scope="col" class="fw-bold ps-5">
+          <% if @order == 'desc' %>
+            <%= link_to tags_path(sort_by: 'asc'), class: 'sort-by-name' do %>
+              Tag <%= fa_icon "chevron-up" %>
+            <% end %>
+          <% else %>
+            <%= link_to tags_path(sort_by: 'desc'), class: 'sort-by-name' do %>
+              Tag <%= fa_icon "chevron-down" %>
+            <% end %>
+          <% end %>
         </th>
         <th scope="col" class="text-center">Total Images</th>
         <th scope="col"></th>
@@ -12,7 +20,7 @@
     <tbody>
       <% tags.each do |tag| %>
           <tr>
-            <td>
+            <td class="ps-5">
               <div class="fw-bold font-20"><%= tag.name %></div>
             </td>
             <td class="text-center">

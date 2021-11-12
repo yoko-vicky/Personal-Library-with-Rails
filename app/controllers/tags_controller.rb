@@ -3,12 +3,13 @@ class TagsController < ApplicationController
 
   # GET /tags or /tags.json
   def index
-    @tags = current_user.tags.all.page(params[:page]).per(10)
+    @order = params[:sort_by] || 'asc'
+    @tags = current_user.tags_sort_by(@order).add_pagenation(params[:page])
   end
 
   # GET /tags/1 or /tags/1.json
   def show
-    @tag_images = @tag.images.page(params[:page]).per(10)
+    @tag_images = @tag.images_sort_by('asc').add_pagenation(params[:page])
   end
 
   # GET /tags/new
