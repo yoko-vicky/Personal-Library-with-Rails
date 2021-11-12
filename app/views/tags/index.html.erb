@@ -6,7 +6,7 @@
         <%= fa_icon "plus" %>
       <% end %>
     </div>
-    <%= render "shared/search" %>
+    <%= render "shared/search", path: tags_path %>
   </div>
   <%= render "tags/tags", tags: @tags %>
   <%= paginate @tags %>

@@ -4,7 +4,8 @@ class TagsController < ApplicationController
   # GET /tags or /tags.json
   def index
     @order = params[:sort_by] || 'asc'
-    @tags = current_user.tags_sort_by(@order).add_pagenation(params[:page])
+    @keyword = params[:search] ? params[:search].strip.downcase : ''
+    @tags = current_user.tags_search_by(@keyword).sort_by_order(@order).add_pagenation(params[:page])
   end
 
   # GET /tags/1 or /tags/1.json
@@ -61,6 +62,6 @@ class TagsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def tag_params
-    params.require(:tag).permit(:name)
+    params.require(:tag).permit(:name, :search, :sort_by)
   end
 end

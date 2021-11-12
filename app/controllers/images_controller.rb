@@ -7,7 +7,8 @@ class ImagesController < ApplicationController
   def index
     @tags = current_user.tags
     @order = params[:sort_by] || 'asc'
-    @images = current_user.images_sort_by(@order).add_pagenation(params[:page])
+    @keyword = params[:search] ? params[:search].strip.downcase : ''
+    @images = current_user.images_search_by(@keyword).sort_by_order(@order).add_pagenation(params[:page])
   end
 
   # GET /images/1 or /images/1.json
@@ -69,6 +70,6 @@ class ImagesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def image_params
-    params.require(:image).permit(:name, :file, :file_cache)
+    params.require(:image).permit(:name, :file, :file_cache, :search, :sort_by)
   end
 end

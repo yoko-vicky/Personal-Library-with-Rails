@@ -16,7 +16,7 @@
         <% end %>
       <% end %>
     </div>
-    <%= render "shared/search" %>
+    <%= render "shared/search", path: images_path %>
   </div>
   <%= render "images/images", images: @images %>
   <%= paginate @images %>

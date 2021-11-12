@@ -14,4 +14,16 @@ class User < ApplicationRecord
   def tags_sort_by(order)
     order == 'asc' ? tags.sort_by_name_asc : tags.sort_by_name_desc
   end
+
+  def images_search_by(keyword)
+    images unless keyword
+
+    images.search_by(keyword) || images
+  end
+
+  def tags_search_by(keyword)
+    tags unless keyword
+
+    tags.search_by(keyword) || tags
+  end
 end

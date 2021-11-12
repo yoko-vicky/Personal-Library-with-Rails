@@ -2,6 +2,7 @@
   <table class="table">
     <thead>
       <tr>
+        <th scope="col"></th>
         <th scope="col" class="fw-bold ps-5">
           <% if @order == 'desc' %>
             <%= link_to tags_path(sort_by: 'asc'), class: 'sort-by-name' do %>
@@ -15,11 +16,13 @@
         </th>
         <th scope="col" class="text-center">Total Images</th>
         <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
       <% tags.each do |tag| %>
           <tr>
+            <td></td>
             <td class="ps-5">
               <div class="fw-bold font-20"><%= tag.name %></div>
             </td>
@@ -29,6 +32,7 @@
             <td class="d-flex justify-content-end">
               <%= render partial: "shared/actions", locals: { model: tag, edit_path: edit_tag_path(tag) } %>
             </td>
+            <td></td>
           </tr>
         <% end %>
     </tbody>
