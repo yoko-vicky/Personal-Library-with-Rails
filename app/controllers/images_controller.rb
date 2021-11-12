@@ -1,8 +1,6 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: %i[show edit update destroy]
 
-  @order = true
-
   # GET /images or /images.json
   def index
     @tags = current_user.tags

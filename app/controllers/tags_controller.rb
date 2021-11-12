@@ -12,7 +12,7 @@ class TagsController < ApplicationController
   def show
     @order = params[:sort_by] || 'asc'
     @keyword = params[:search] ? params[:search].strip.downcase : ''
-    @tag_images = @tag.images.search_by(@keyword).sort_by_order(@order).add_pagenation(params[:page])
+    @tag_images = @tag.images_search_by(@keyword).sort_by_order(@order).add_pagenation(params[:page])
   end
 
   # GET /tags/new
