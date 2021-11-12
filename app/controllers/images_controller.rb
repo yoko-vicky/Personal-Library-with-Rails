@@ -1,10 +1,13 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: %i[show edit update destroy]
 
+  @order = true
+
   # GET /images or /images.json
   def index
-    @images = current_user.images.sort_by_name_asc.page(params[:page]).per(10)
     @tags = current_user.tags
+    @order = params[:sort_by] || 'asc'
+    @images = current_user.images_sort_by(@order).add_pagenation(params[:page])
   end
 
   # GET /images/1 or /images/1.json

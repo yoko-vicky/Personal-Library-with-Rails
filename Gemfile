@@ -46,7 +46,7 @@ gem 'dotenv-rails'
 gem 'kaminari'
 
 # Use drop and drag uploader with carrierwave
-gem "dropzonejs-rails"
+gem 'dropzonejs-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

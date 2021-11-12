@@ -5,7 +5,10 @@ class Image < ApplicationRecord
   has_many :image_tags, dependent: :destroy
   has_many :tags, through: :image_tags
 
-  scope :sort_by_latest, -> { order(created_at: :desc) }
   scope :sort_by_name_asc, -> { order(name: :asc) }
   scope :sort_by_name_desc, -> { order(name: :desc) }
+
+  def self.add_pagenation(param)
+    page(param).per(10)
+  end
 end

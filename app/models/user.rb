@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def images_sort_by(order)
+    order == 'asc' ? images.sort_by_name_asc : images.sort_by_name_desc
+  end
 end

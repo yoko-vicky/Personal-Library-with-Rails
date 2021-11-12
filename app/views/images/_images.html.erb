@@ -4,7 +4,16 @@
       <tr>
         <th scope="col"></th>
         <th scope="col" class="fw-bold">
-          Name <%= fa_icon "chevron-down", class: 'class' %>
+          <%# link_to('name', 'javascript:void(0);', onclick: "console.log('test')") %>
+          <% if @order == 'desc' %>
+            <%= link_to images_path(sort_by: 'asc'), class: 'sort-by-name' do %>
+              Name <%= fa_icon "chevron-up", class: 'class' %>
+            <% end %>
+          <% else %>
+            <%= link_to images_path(sort_by: 'desc'), class: 'sort-by-name' do %>
+              Name <%= fa_icon "chevron-down", class: 'class' %>
+            <% end %>
+          <% end %>
         </th>
         <th scope="col">Tags</th>
         <th scope="col" class="text-center">Total Tags</th>
