@@ -7,6 +7,10 @@ class Tag < ApplicationRecord
   scope :sort_by_name_desc, -> { order(name: :desc) }
   scope :search_by, ->(keyword) { where('LOWER(name) LIKE ?', "%#{keyword}%") }
 
+  def self.names_downcased
+    sort_by_name_asc.map { |tag| tag.name.downcase }
+  end
+
   def images_sort_by(order)
     order == 'asc' ? images.sort_by_name_asc : images.sort_by_name_desc
   end

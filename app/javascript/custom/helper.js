@@ -1,24 +1,15 @@
-console.log('Hi there');
+// require('dotenv').config();
 
-// =======================
-// DRAG & DROP
-// =======================
-// $(function () {
-//   // disable auto discover
-//   Dropzone.autoDiscover = false;
+// console.log('Hi there');
+// console.log(process.env.CLARIFY_APP_ID);
 
-//   $('.dropzone').dropzone({
-//     maxFilesize: 1,
-//     addRemoveLinks: true,
-//   });
-// });
 // =======================
 // SEND A REQUEST
 // =======================
 // const raw = JSON.stringify({
 //   user_app_id: {
-//     user_id: ENV['CLARIFY_USER_ID'],
-//     app_id: ENV['CLARIFY_APP_ID'],
+//     user_id: process.env.CLARIFY_USER_ID,
+//     app_id: process.env.CLARIFY_APP_ID,
 //   },
 //   inputs: [
 //     {
@@ -35,13 +26,13 @@ console.log('Hi there');
 //   method: 'POST',
 //   headers: {
 //     Accept: 'application/json',
-//     Authorization: 'Key ' + ENV['CLARIFY_ACCESS_TOKEN'],
+//     Authorization: 'Key ' + process.env.CLARIFY_ACCESS_TOKEN,
 //   },
 //   body: raw,
 // };
 
 // fetch(
-//   'https://api.clarifai.com/v2/models/' + ENV['CLARIFY_MODEL_ID'] + '/outputs',
+//   'https://api.clarifai.com/v2/models/9f54c0342741574068ec696ddbebd699/outputs',
 //   requestOptions,
 // )
 //   .then((response) => response.text())
@@ -50,6 +41,8 @@ console.log('Hi there');
 //       JSON.parse(result, null, 2).outputs[0].data.regions.map(
 //         (item) => item.data.concepts[0].name,
 //       ),
+
+//       // JSON.parse(result),
 //     ),
 //   )
 //   .catch((error) => console.log('error', error));

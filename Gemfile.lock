@@ -104,6 +104,25 @@ GEM
     excon (0.88.0)
     faker (2.19.0)
       i18n (>= 1.6, < 2)
+    faraday (1.8.0)
+      faraday-em_http (~> 1.0)
+      faraday-em_synchrony (~> 1.0)
+      faraday-excon (~> 1.1)
+      faraday-httpclient (~> 1.0.1)
+      faraday-net_http (~> 1.0)
+      faraday-net_http_persistent (~> 1.1)
+      faraday-patron (~> 1.0)
+      faraday-rack (~> 1.0)
+      multipart-post (>= 1.2, < 3)
+      ruby2_keywords (>= 0.0.4)
+    faraday-em_http (1.0.0)
+    faraday-em_synchrony (1.0.0)
+    faraday-excon (1.1.0)
+    faraday-httpclient (1.0.1)
+    faraday-net_http (1.0.1)
+    faraday-net_http_persistent (1.2.0)
+    faraday-patron (1.0.0)
+    faraday-rack (1.0.0)
     ffi (1.15.4)
     fog-aws (3.12.0)
       fog-core (~> 2.1)
@@ -162,6 +181,7 @@ GEM
     minitest (5.14.4)
     msgpack (1.4.2)
     multi_json (1.15.0)
+    multipart-post (2.1.1)
     nio4r (2.5.8)
     nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
@@ -247,6 +267,7 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
     ruby-progressbar (1.11.0)
+    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -315,6 +336,7 @@ DEPENDENCIES
   dotenv-rails
   dropzonejs-rails
   faker
+  faraday
   fog-aws
   font-awesome-rails
   jbuilder (~> 2.7)
