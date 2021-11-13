@@ -34,33 +34,38 @@ class ImagesController < ApplicationController
   def create
     @image = current_user.images.new(image_params)
 
-    if @image.save
-      flash[:notice] = 'Image was successfully created.'
-      tagging(@image)
-      redirect_to image_path(@image)
-    else
-      # @image.errors
-      flash[:alert] = 'Something is wrong'
-      render 'new'
+    respond_to do |format|
+      if @image.save
+        format.html { redirect_to @image, notice: 'Image was successfully created.' }
+        format.json { render :show, status: :created, location: @image }
+        # here it should have tagging(@image)
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @image.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   # PATCH/PUT /images/1 or /images/1.json
   def update
-    if @image.update(image_params)
-      flash[:notice] = 'Image was successfully updated.'
-      redirect_to image_path(@image)
-    else
-      flash[:alert] = 'Something is wrong'
-      render 'edit'
+    respond_to do |format|
+      if @image.update(image_params)
+        format.html { redirect_to @image, notice: 'Image was successfully updated.' }
+        format.json { render :show, status: :ok, location: @image }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @image.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   # DELETE /images/1 or /images/1.json
   def destroy
     @image.destroy
-    flash[:notice] = 'Image was successfully deleted.'
-    redirect_to root_path
+    respond_to do |format|
+      format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
