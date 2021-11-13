@@ -1,7 +1,9 @@
 // require('dotenv').config();
 
-// console.log('Hi there');
+console.log('Hi there');
 // console.log(process.env.CLARIFY_APP_ID);
+
+// function paintIt() {}
 
 // =======================
 // SEND A REQUEST

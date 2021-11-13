@@ -1,4 +1,5 @@
 <%= render "shared/errors", obj: image %>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
 <%= form_with model: image, multipart: true do |form| %>
   <div class="mb-5">
@@ -28,6 +29,8 @@
   </div>
 
   <div class="mb-5">
-    <%= form.submit btn_msg, class: 'btn btn-dark font-16 float-end p-3 rounded-x shadow-x' %>
+    <%= form.submit btn_msg, class: 'btn btn-dark font-16 float-end p-3 rounded-x shadow-x', id: 'update-image' %>
   </div>
 <% end %>
+
+<%= javascript_pack_tag 'parts/form' %>
