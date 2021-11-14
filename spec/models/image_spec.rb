@@ -46,7 +46,6 @@ RSpec.describe Image, type: :model do
   end
 end
 
-
 # def self.add_pagenation(param)
 #     page(param).per(10)
 #   end

@@ -102,6 +102,11 @@ GEM
       rails (> 3.1)
     erubi (1.10.0)
     excon (0.88.0)
+    factory_bot (6.2.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     faker (2.19.0)
       i18n (>= 1.6, < 2)
     faraday (1.8.0)
@@ -335,6 +340,7 @@ DEPENDENCIES
   devise-bootstrap-views (~> 1.0)
   dotenv-rails
   dropzonejs-rails
+  factory_bot_rails
   faker
   faraday
   fog-aws
