@@ -39,9 +39,12 @@ class ImagesController < ApplicationController
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
         # here it should have tagging(@image)
+        # format.js { flash[:notice] = 'Image was successfully created.', @status = 'success', @image }
+        # format.js { @status = 'success' }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @image.errors, status: :unprocessable_entity }
+        # format.js { @status = 'fail' }
       end
     end
   end

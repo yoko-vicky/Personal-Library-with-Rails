@@ -1,0 +1,6 @@
+<% if @status == 'success' %>
+    window.location.replace("<%= images_path %>");
+<%  elsif @status == 'fail' %>
+    alert('error!');
+<% end %>
+$("#modal-container").modal("hide");

@@ -1,7 +1,6 @@
 <%= render "shared/errors", obj: image %>
-<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
-<%= form_with model: image, multipart: true do |form| %>
+<%= form_with model: image, multipart: true, remote: true do |form| %>
   <div class="mb-5">
     <%= form.label 'Title', {class: "form-label"} %>
     <%= form.text_field :name,
