@@ -40,12 +40,6 @@ RSpec.describe ImagesHelper, type: :helper do
     end
   end
 
-  describe 'tag_images_num' do
-    it 'returns images number based on the tag passed as an argument' do
-      expect(tag_images_num(tag1)).to eq 1
-    end
-  end
-
   describe 'all_images_num' do
     it 'returns the number of images based on the images passed as an argument' do
       expect(all_images_num(user.images)).to eq 3

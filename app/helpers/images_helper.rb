@@ -11,10 +11,6 @@ module ImagesHelper
     image.tags.count
   end
 
-  def tag_images_num(tag)
-    tag.images.count
-  end
-
   def all_images_num(images)
     images.count
   end
