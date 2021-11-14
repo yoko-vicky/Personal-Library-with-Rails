@@ -4,6 +4,7 @@ class Image < ApplicationRecord
   belongs_to :user
   has_many :image_tags, dependent: :destroy
   has_many :tags, through: :image_tags
+  validates :name, presence: true
 
   scope :sort_by_name_asc, -> { order(name: :asc) }
   scope :sort_by_name_desc, -> { order(name: :desc) }
