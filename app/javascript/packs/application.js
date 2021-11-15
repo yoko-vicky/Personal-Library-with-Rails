@@ -8,7 +8,6 @@ import * as ActiveStorage from '@rails/activestorage';
 import 'channels';
 import 'jquery';
 
-// import 'custom/helper';
 
 Rails.start();
 ActiveStorage.start();

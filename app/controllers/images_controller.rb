@@ -79,15 +79,4 @@ class ImagesController < ApplicationController
   def image_params
     params.require(:image).permit(:name, :file, :file_cache, :search, :sort_by, :keywords, :imageid)
   end
-
-  # def create_add_tag(keywords)
-  #   # 2. Create each Tag based on taggings array
-  #   keywords.each do |keyword|
-  #     tag_exists = Tag.names_downcased.include?(keyword.downcase)
-  #     tag = tag_exists ? Tag.find_by(name: keyword.downcase) : current_user.tags.new(name: keyword)
-  #     # 3. Make a connection by posting ImageTag row to ImageTag through table
-  #     ImageTag.create(image_id: @image.id, tag_id: tag.id)
-  #   end
-  # end
-
 end
