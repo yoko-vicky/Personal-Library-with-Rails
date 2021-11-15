@@ -48,6 +48,9 @@ gem 'kaminari'
 # Use drop and drag uploader with carrierwave
 gem 'dropzonejs-rails'
 
+# Use aws s3 with Heroku
+gem "aws-sdk-s3", require: false
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
