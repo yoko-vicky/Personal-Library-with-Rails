@@ -32,7 +32,10 @@ class ImagesController < ApplicationController
         format.js { flash[:notice] = 'Image was successfully created.' }
       else
         @status = 'fail'
-        format.js { flash[:alert] = 'something is wrong' }
+        # byebug
+        @image.errors.full_messages.each do |msg|
+          format.js { flash[:alert] = msg }
+        end
       end
     end
   end

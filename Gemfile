@@ -49,8 +49,10 @@ gem 'kaminari'
 gem 'dropzonejs-rails'
 
 # Use aws s3 with Heroku
-gem "aws-sdk-s3", require: false
+gem 'aws-sdk-s3', require: false
 
+# Add file size validation
+gem 'file_validators'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
