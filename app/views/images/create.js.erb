@@ -1,4 +1,7 @@
 <% if @status == 'success' %>
+const spinner = document.getElementById('loading-spinner')
+spinner.classList.add('show')
+
 const raw = JSON.stringify({
   user_app_id: {
     user_id: '<%= ENV['CLARIFY_USER_ID'] %>',
@@ -44,11 +47,13 @@ fetch(
         imageid: '<%= @image.id %>'
       },
       dataType: 'html',
-      success: function(data){
-         window.location.replace("<%= image_path(@image) %>");
+      success: function (data) {
+        window.location.replace("<%= image_path(@image) %>");
+        spinner.classList.remove('show')
       },
-      error: function(data){
+      error: function (data) {
         window.location.replace("<%= images_path %>");
+        spinner.classList.remove('show')
       }
     });
 
