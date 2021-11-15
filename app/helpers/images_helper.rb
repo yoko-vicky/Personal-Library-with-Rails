@@ -14,4 +14,8 @@ module ImagesHelper
   def all_images_num(images)
     images.count
   end
+
+  def local_boolean(type)
+    type != 'Upload'
+  end
 end

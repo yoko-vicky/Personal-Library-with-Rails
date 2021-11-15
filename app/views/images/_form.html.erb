@@ -1,6 +1,6 @@
 <%= render "shared/errors", obj: image %>
 
-<%= form_with model: image, multipart: true, local: false do |form| %>
+<%= new_form = form_with model: image, multipart: true, local: local_boolean(btn_msg) do |form| %>
   <div class="mb-5">
     <%= form.label 'Title', {class: "form-label"} %>
     <%= form.text_field :name,
