@@ -1,6 +1,8 @@
 <% if @status == 'success' %>
 const spinner = document.getElementById('loading-spinner')
+const body = document.querySelector('body')
 spinner.classList.add('show')
+body.classList.add('loading')
 
 const raw = JSON.stringify({
   user_app_id: {
@@ -50,10 +52,12 @@ fetch(
       success: function (data) {
         window.location.replace("<%= image_path(@image) %>");
         spinner.classList.remove('show')
+        body.classList.remove('loading')
       },
       error: function (data) {
         window.location.replace("<%= images_path %>");
         spinner.classList.remove('show')
+        body.classList.remove('loading')
       }
     });
 
