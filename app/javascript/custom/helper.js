@@ -1,13 +1,13 @@
 // require('dotenv').config();
 
-console.log('Hi there');
-// console.log(process.env.CLARIFY_APP_ID);
+// console.log('Hi there');
+// // console.log(process.env.CLARIFY_APP_ID);
 
-// function paintIt() {}
+// // function paintIt() {}
 
-// =======================
-// SEND A REQUEST
-// =======================
+// // =======================
+// // SEND A REQUEST
+// // =======================
 // const raw = JSON.stringify({
 //   user_app_id: {
 //     user_id: process.env.CLARIFY_USER_ID,
@@ -38,13 +38,26 @@ console.log('Hi there');
 //   requestOptions,
 // )
 //   .then((response) => response.text())
-//   .then((result) =>
-//     console.log(
-//       JSON.parse(result, null, 2).outputs[0].data.regions.map(
-//         (item) => item.data.concepts[0].name,
-//       ),
-
-//       // JSON.parse(result),
-//     ),
-//   )
+//   .then((result) => {
+//     const data = JSON.parse(result, null, 2).outputs[0].data.regions.map(
+//       (item) => item.data.concepts[0].name,
+//     );
+//     console.log(data);
+//   })
 //   .catch((error) => console.log('error', error));
+
+fetch(
+  'https://api.clarifai.com/v2/models/9f54c0342741574068ec696ddbebd699/outputs',
+  requestOptions,
+)
+  .then((response) => response.text())
+  .then((result) => {
+    const data = JSON.parse(result, null, 2).outputs[0].data.regions.map(
+      (item) => item.data.concepts[0].name,
+    );
+    window.location.replace('<%= image_path(id: @image.id, data: data) %>');
+    window.location.replace(
+      `<%= images_path %>/<%= @image.id %>/&data=${data}`,
+    );
+  })
+  .catch((error) => console.log('error', error));

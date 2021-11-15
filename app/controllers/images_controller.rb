@@ -18,7 +18,9 @@ class ImagesController < ApplicationController
   end
 
   # GET /images/1 or /images/1.json
-  def show; end
+  def show
+    byebug
+  end
 
   # GET /images/new
   def new
@@ -33,18 +35,14 @@ class ImagesController < ApplicationController
   # POST /images or /images.json
   def create
     @image = current_user.images.new(image_params)
-
+    @status = ''
     respond_to do |format|
       if @image.save
-        format.html { redirect_to @image, notice: 'Image was successfully created.' }
-        format.json { render :show, status: :created, location: @image }
-        # here it should have tagging(@image)
-        # format.js { flash[:notice] = 'Image was successfully created.', @status = 'success', @image }
-        # format.js { @status = 'success' }
+        @status = 'success'
+        format.js { flash[:notice] = 'Image was successfully created.' }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @image.errors, status: :unprocessable_entity }
-        # format.js { @status = 'fail' }
+        @status = 'fail'
+        format.js { flash[:alert] = 'something is wrong' }
       end
     end
   end
@@ -80,7 +78,7 @@ class ImagesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def image_params
-    params.require(:image).permit(:name, :file, :file_cache, :search, :sort_by)
+    params.require(:image).permit(:name, :file, :file_cache, :search, :sort_by, :data)
   end
 
   def tagging(image)
