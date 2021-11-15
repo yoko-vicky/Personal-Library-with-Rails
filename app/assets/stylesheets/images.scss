@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import './abstracts/variables';
+
+.flex-image-td {
+  width: 12rem;
+}
+
 .images {
   width: 7.5rem;
   height: 7.5rem;

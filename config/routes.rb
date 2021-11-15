@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
+  root 'images#index'
+
   resources :images
   resources :tags
 
-  root 'images#index'
+  post 'taggings', to: 'images#taggings'
 end

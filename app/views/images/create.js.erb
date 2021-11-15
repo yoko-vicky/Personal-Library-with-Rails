@@ -33,10 +33,27 @@ fetch(
     const data = JSON.parse(result, null, 2).outputs[0].data.regions.map(
       (item) => item.data.concepts[0].name,
     );
-    window.location.replace("<%= image_path(id: @image.id, data: data) %>");
+    console.log(data)
+
+    $.ajax({
+      url: 'taggings',
+      type: 'POST',
+      async: true,
+      data: {
+        keywords: data,
+        imageid: '<%= @image.id %>'
+      },
+      dataType: 'html',
+      success: function(data){
+         window.location.replace("<%= image_path(@image) %>");
+      },
+      error: function(data){
+        window.location.replace("<%= images_path %>");
+      }
+    });
+
   })
   .catch((error) => console.log('error', error));
-
 <%  elsif @status == 'fail' %>
     window.location.replace("<%= images_path %>");
 <% end %>
