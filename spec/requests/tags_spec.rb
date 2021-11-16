@@ -20,7 +20,7 @@ RSpec.describe 'Testing TagsController', type: :request do
         expect(response.status).to eq 200
       end
 
-      it 'Show title in root/tags view' do
+      it 'Show title in index view' do
         expect(response.body).to include('tags')
       end
     end
@@ -34,7 +34,7 @@ RSpec.describe 'Testing TagsController', type: :request do
         expect(response.status).to eq 200
       end
 
-      it 'Show title in view' do
+      it 'Show title in show view' do
         expect(response.body).to include(tag1.name)
       end
     end
@@ -75,7 +75,7 @@ RSpec.describe 'Testing TagsController', type: :request do
           put tag_path(tag1), params: valid_params
         end
 
-        it 'creates a tag' do
+        it 'updates a tag' do
           expect(response.body).not_to be_empty
         end
 
@@ -95,7 +95,7 @@ RSpec.describe 'Testing TagsController', type: :request do
       end
     end
 
-    context 'DELETE /tags/:id' do
+    context 'DELETE /tag/:id' do
       before do
         delete tag_path(tag1)
       end
