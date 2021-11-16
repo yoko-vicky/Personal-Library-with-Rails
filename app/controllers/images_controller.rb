@@ -42,7 +42,7 @@ class ImagesController < ApplicationController
     @keywords = params[:keywords].uniq
     @keywords.each_with_index do |keyword, index|
       tag = Tag.find_by(name: keyword) || current_user.tags.create(name: keyword)
-      ImageTag.create(image_id: params[:imageid], tag_id: tag.id)
+      current_user.image_tags.create(image_id: params[:imageid], tag_id: tag.id)
       break if index > 9
     end
   end

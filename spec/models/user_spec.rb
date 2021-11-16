@@ -4,6 +4,7 @@ RSpec.describe User, type: :model do
   describe 'Testing associations' do
     it { should have_many(:images).dependent(:destroy) }
     it { should have_many(:tags).dependent(:destroy) }
+    it { should have_many(:users).dependent(:destroy) }
   end
 
   describe 'Testing scopes and instance methods' do

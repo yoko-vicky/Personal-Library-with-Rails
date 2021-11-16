@@ -50,12 +50,12 @@ fetch(
       },
       dataType: 'html',
       success: function (data) {
-        window.location.replace("<%= image_path(@image) %>");
+
         spinner.classList.remove('show')
         body.classList.remove('loading')
       },
       error: function (data) {
-        window.location.replace("<%= images_path %>");
+
         spinner.classList.remove('show')
         body.classList.remove('loading')
       }
