@@ -27,4 +27,8 @@ class User < ApplicationRecord
 
     tags.search_by(keyword) || tags
   end
+
+  def find_image_tags(tag_id, image_id)
+    image_tags.where(tag_id: tag_id, image_id: image_id)[0]
+  end
 end

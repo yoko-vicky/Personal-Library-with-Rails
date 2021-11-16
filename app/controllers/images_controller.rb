@@ -88,9 +88,8 @@ class ImagesController < ApplicationController
   end
 
   def remove_current_tags(image)
-    tags = image.tags
-    tags.each do |tag|
-      image_tag = current_user.image_tags.where(tag_id: tag.id, image_id: image.id)[0]
+    image.tags.each do |tag|
+      image_tag = current_user.find_image_tags(tag.id, image.id)
       image_tag&.destroy
     end
   end
