@@ -51,12 +51,7 @@ class ImagesController < ApplicationController
   def update
     respond_to do |format|
       if @image.update(image_params) && params[:image][:file]
-        # Remove current tags
-        # @tags = @image.tags
-        # @tags.each do |tag|
-        #   ImageTag.all.where(tag_id:
-        # end
-
+        remove_current_tags(@image)
         @status = 'success'
         format.js { flash[:notice] = 'Image was successfully updated.' }
       elsif @image.update(image_params)
@@ -90,5 +85,13 @@ class ImagesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def image_params
     params.require(:image).permit(:name, :file, :file_cache, :search, :sort_by, :keywords, :imageid)
+  end
+
+  def remove_current_tags(image)
+    tags = image.tags
+    tags.each do |tag|
+      image_tag = current_user.image_tags.where(tag_id: tag.id, image_id: image.id)[0]
+      image_tag&.destroy
+    end
   end
 end
