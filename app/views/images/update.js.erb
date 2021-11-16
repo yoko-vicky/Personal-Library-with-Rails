@@ -64,6 +64,6 @@ fetch(
   })
   .catch((error) => console.log('error', error));
 <%  elsif @status == 'fail' %>
-    window.location.replace("<%= image_edit_path(@image) %>");
+    window.location.replace("<%= edit_image_path(@image) %>");
 <% end %>
 $("#modal-container").modal("hide");

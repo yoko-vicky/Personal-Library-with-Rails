@@ -19,9 +19,9 @@ RSpec.describe Tag, type: :model do
     let!(:image1) { user.images.create(name: 'Apple', file: 'apple.png') }
     let!(:image2) { user.images.create(name: 'Blue', file: 'blue.png') }
     let!(:image3) { user.images.create(name: 'Zoo', file: 'zoo.png') }
-    let!(:image_tag1) { ImageTag.create(image_id: image1.id, tag_id: tag2.id) }
-    let!(:image_tag2) { ImageTag.create(image_id: image2.id, tag_id: tag1.id) }
-    let!(:image_tag3) { ImageTag.create(image_id: image3.id, tag_id: tag3.id) }
+    let!(:image_tag1) { user.image_tags.create(image_id: image1.id, tag_id: tag2.id) }
+    let!(:image_tag2) { user.image_tags.create(image_id: image2.id, tag_id: tag1.id) }
+    let!(:image_tag3) { user.image_tags.create(image_id: image3.id, tag_id: tag3.id) }
 
     describe 'sort_by_name_asc' do
       it 'returns Tags sorted by ASC name order' do

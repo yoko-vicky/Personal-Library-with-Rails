@@ -59,7 +59,7 @@ RSpec.describe 'Testing ImagesController', type: :request do
 
       context 'when the request is invalid' do
         before do
-          post images_path, params: { image: { name: '', file: '' }, format: :js }
+          post images_path, params: { image: { name: '', file: '' }, format: :js }, xhr: true
         end
 
         it 'redirects to index view' do
@@ -69,29 +69,30 @@ RSpec.describe 'Testing ImagesController', type: :request do
     end
 
     context 'PUT /image/:id/' do
-      let(:valid_params) { { image: { name: 'Beautiful Cat' } } }
+      let(:valid_params) { { image: { file: 'new_cat.png' }, format: :js } }
 
       context 'when the request is valid' do
         before do
-          put image_path(image1), params: valid_params
+          put image_path(image1), params: valid_params, xhr: true
         end
 
-        it 'updates a image' do
-          expect(response.body).not_to be_empty
+        it 'send a request to API and pass back data to controller' do
+          expect(response.body).to include 'fetch'
+          expect(response.body).to include '$.ajax'
         end
 
-        it 'returns status code 302 to redirect to show view' do
-          expect(response.status).to eq 302
+        it 'returns status code 200 to redirect to show view' do
+          expect(response.status).to eq 200
         end
       end
 
       context 'when the request is invalid' do
         before do
-          put image_path(image1), params: { image: { name: '' } }
+          put image_path(image1), params: { image: { name: '' }, format: :js }, xhr: true
         end
 
-        it 'returns status code 422' do
-          expect(response.status).to eq 422
+        it 'returns status code 200 to redirect to edit view' do
+          expect(response.status).to eq 200
         end
       end
     end
