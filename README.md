@@ -1,6 +1,6 @@
 # Personal Library :BowerTest
 
-![Screenshot](/screenshot.png)
+![Screenshot](/screenshot.gif)
 
 ## About the Project
 
@@ -32,7 +32,7 @@ A list of commonly used resources that I find helpful is listed in the acknowled
 
 [Live Demo Link](https://bower-test-yokosaka.herokuapp.com/)
 
-<!-- ## Getting Started
+## Getting Started
 
 To get a local copy up and running follow these simple example steps.
 
@@ -47,7 +47,7 @@ To get a local copy up and running follow these simple example steps.
 8. To install all dependencies and necessary gems, run `bundle install`
 9. Run `rails db:setup`
 10. Run `rails server` to run rails application in your local server
-11. Run `rspec` to run rspec tests -->
+11. Run `rspec` to run rspec tests
 
 ## Author
 
@@ -57,7 +57,7 @@ To get a local copy up and running follow these simple example steps.
 - Twitter: [@yocosaka](https://twitter.com/yocosaka)
 - LinkedIn: [Yoko Saka](https://www.linkedin.com/in/yokosaka)
 
-<!-- ## Contributing
+## Contributing
 
 Contributions, issues, and feature requests are welcome!
 Feel free to check the [issues page](../../issues).
@@ -66,7 +66,7 @@ Feel free to check the [issues page](../../issues).
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request -->
+5. Open a Pull Request
 
 ## Show your support
 
