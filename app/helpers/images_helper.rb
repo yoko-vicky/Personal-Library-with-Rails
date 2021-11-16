@@ -18,4 +18,8 @@ module ImagesHelper
   def local_boolean(type)
     type != 'Upload'
   end
+
+  def file_required(type)
+    type == 'Upload'
+  end
 end

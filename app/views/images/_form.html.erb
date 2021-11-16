@@ -21,7 +21,7 @@
         <span class="desc">Drop an image here or<br><span class="underline">Browse from your computer</span></span>
         <%= fa_icon "picture-o" %>
       </p>
-      <%= form.file_field :file, class: 'dropzone' %>
+      <%= form.file_field :file, class: 'dropzone', required: file_required(btn_msg) %>
     </div>
 
     <%= form.hidden_field :file_cache %>
