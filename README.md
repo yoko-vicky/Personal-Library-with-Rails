@@ -1,4 +1,4 @@
-# Personal Library :BowerTest
+# Personal Library
 
 ![Screenshot](/screenshot.gif)
 
@@ -6,7 +6,7 @@
 
 This project was built with Ruby on Rails that allows a user to login and upload an image that gets automatically tagged using an external image API service called Clarifai.
 
-The base of this application was provided by [Lim Choon Yun (Marco)](https://github.com/marco8757) at [Bower Bird](https://bowerbird.talentlyft.com/) as a starting point which includes Rails 6, and Bootstrap 5.
+The base of this application was provided by [Lim Choon Yun (Marco)](https://github.com/marco8757) at Bower Bird as a starting point which includes Rails 6, and Bootstrap 5.
 
 **Some keynotes**
 
