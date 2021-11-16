@@ -5,11 +5,17 @@
 }
 
 .p-60-80 {
-  padding: 6rem 8rem;
+  padding: 2.4rem 3rem;
+  @include mq(md) {
+    padding: 6rem 8rem;
+  }
 }
 
 .p-80 {
-  padding: 8rem;
+  padding: 2.4rem 2.4rem 6rem 2.4rem;
+  @include mq(md) {
+    padding: 8rem;
+  }
 }
 
 .rounded-x {
@@ -29,15 +35,24 @@
 }
 
 .p-7 {
-  padding: 5rem;
+  padding: 2rem;
+  @include mq(md) {
+    padding: 5rem;
+  }
 }
 
 .gap-16 {
-  gap: 1.6rem;
+  gap: 1.4rem;
+  @include mq(md) {
+    gap: 1.6rem;
+  }
 }
 
 .gap-20 {
-  gap: 2rem;
+  gap: 1.8rem;
+  @include mq(md) {
+    gap: 2rem;
+  }
 }
 
 .font-14 {
@@ -45,11 +60,16 @@
 }
 
 .font-16 {
-  font-size: 1.6rem;
+  @include mq(md) {
+    font-size: 1.6rem;
+  }
 }
 
 .font-20 {
-  font-size: 2rem;
+  font-size: 1.7rem;
+  @include mq(md) {
+    font-size: 2rem;
+  }
 }
 
 .pb-10 {

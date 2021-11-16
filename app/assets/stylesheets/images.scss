@@ -4,7 +4,13 @@
 @import './abstracts/variables';
 
 .flex-image-td {
+  display: block;
   width: 12rem;
+  border-bottom-width: 0px !important;
+  @include mq(md) {
+    display: table-cell;
+    border-bottom-width: 1px !important;
+  }
 }
 
 .images {
@@ -69,9 +75,13 @@
 .show-container {
   &__image {
     .image {
-      width: 35rem;
-      height: 35rem;
       object-fit: cover;
+      width: 100%;
+      min-height: 30rem;
+      @include mq(md) {
+        width: 35rem;
+        height: 35rem;
+      }
     }
   }
   &__image-size {

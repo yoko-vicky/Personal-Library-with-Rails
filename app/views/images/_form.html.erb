@@ -1,7 +1,7 @@
 <%= render "shared/errors", obj: image %>
 
 <%= new_form = form_with model: image, multipart: true, local: local_boolean(btn_msg) do |form| %>
-  <div class="mb-5">
+  <div class="mb-md-5">
     <%= form.label 'Title', {class: "form-label"} %>
     <%= form.text_field :name,
     required: true,
@@ -9,7 +9,7 @@
     placeholder: 'Sydney Opera House' %>
   </div>
 
-  <div class="mb-5">
+  <div class="mb-md-5">
     <%= form.label 'Image', { class: "form-label" } %><br>
 
     <% if image.file.url %>
@@ -18,7 +18,7 @@
 
     <div class="fallback">
       <p>
-        <span class="font-20">Drop an image here or<br><span class="underline">Browse from your computer</span></span>
+        <span class="desc">Drop an image here or<br><span class="underline">Browse from your computer</span></span>
         <%= fa_icon "picture-o" %>
       </p>
       <%= form.file_field :file, class: 'dropzone' %>
@@ -27,7 +27,7 @@
     <%= form.hidden_field :file_cache %>
   </div>
 
-  <div class="mb-5">
+  <div class="mb-md-5">
     <%= form.submit btn_msg, class: 'btn btn-dark font-16 float-end p-3 rounded-x shadow-x', id: 'update-image' %>
   </div>
 <% end %>

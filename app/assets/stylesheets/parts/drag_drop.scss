@@ -13,15 +13,26 @@
     justify-content: center;
     width: 95%;
     height: 85%;
-    top: 50%;
+    top: 57%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 1rem;
     line-height: 1.3;
 
+    @include mq(md) {
+      top: 50%;
+    }
+
     .fa-picture-o {
       font-size: 8rem;
       color: rgba($black, 0.15);
+    }
+
+    .desc {
+      font-size: 1.4rem;
+      @include mq(md) {
+        font-size: 2rem;
+      }
     }
   }
   &::before {
