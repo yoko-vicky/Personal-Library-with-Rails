@@ -15,10 +15,6 @@ module ImagesHelper
     images.count
   end
 
-  # def local_boolean(type)
-  #   type != 'Upload'
-  # end
-
   def file_required(type)
     type == 'Upload'
   end

@@ -12,6 +12,10 @@ class User < ApplicationRecord
     order == 'asc' ? images.sort_by_name_asc : images.sort_by_name_desc
   end
 
+  def tags_num
+    tags.count
+  end
+
   def tags_sort_by(order)
     order == 'asc' ? tags.sort_by_name_asc : tags.sort_by_name_desc
   end

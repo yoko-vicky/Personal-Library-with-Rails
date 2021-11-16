@@ -9,7 +9,7 @@
     </div>
     <div class="header-tags mb-5 d-flex gap-16">
         <%= link_to images_path, class: 'btn btn-light shadow-x bg-white rounded-50 font-16 py-md-3 px-md-4 fw-bold' do %>
-          ALL (<%= all_images_num(current_user.images) %>)
+          ALL (<%= current_user.tags_num %>)
         <% end %>
       <% @tags.each do |tag| %>
         <%= link_to tag_path(tag), class: 'btn btn-light shadow-x bg-white rounded-50 font-16 py-md-3 px-md-4' do %>
