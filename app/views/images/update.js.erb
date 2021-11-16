@@ -1,0 +1,69 @@
+<% if @status == 'success' %>
+const spinner = document.getElementById('loading-spinner')
+const body = document.querySelector('body')
+spinner.classList.add('show')
+body.classList.add('loading')
+
+const raw = JSON.stringify({
+  user_app_id: {
+    user_id: '<%= ENV['CLARIFY_USER_ID'] %>',
+    app_id: '<%= ENV['CLARIFY_APP_ID'] %>',
+  },
+  inputs: [
+    {
+      data: {
+        image: {
+          url: '<%= @image.file %>',
+        },
+      },
+    },
+  ],
+});
+
+const requestOptions = {
+  method: 'POST',
+  headers: {
+    Accept: 'application/json',
+    Authorization: 'Key ' + '<%= ENV['CLARIFY_ACCESS_TOKEN'] %>',
+  },
+  body: raw,
+};
+
+fetch(
+  'https://api.clarifai.com/v2/models/9f54c0342741574068ec696ddbebd699/outputs',
+  requestOptions,
+)
+  .then((response) => response.text())
+  .then((result) => {
+    const data = JSON.parse(result, null, 2).outputs[0].data.regions.map(
+      (item) => item.data.concepts[0].name,
+    );
+    console.log(data)
+
+    $.ajax({
+      url: '/taggings',
+      type: 'POST',
+      async: true,
+      data: {
+        keywords: data,
+        imageid: '<%= @image.id %>'
+      },
+      dataType: 'html',
+      success: function (data) {
+        window.location.replace("<%= image_path(@image) %>");
+        spinner.classList.remove('show')
+        body.classList.remove('loading')
+      },
+      error: function (data) {
+        window.location.replace("<%= images_path %>");
+        spinner.classList.remove('show')
+        body.classList.remove('loading')
+      }
+    });
+
+  })
+  .catch((error) => console.log('error', error));
+<%  elsif @status == 'fail' %>
+    window.location.replace("<%= image_edit_path(@image) %>");
+<% end %>
+$("#modal-container").modal("hide");

@@ -25,14 +25,12 @@ class ImagesController < ApplicationController
   # POST /images or /images.json
   def create
     @image = current_user.images.new(image_params)
-    @status = ''
     respond_to do |format|
       if @image.save
         @status = 'success'
         format.js { flash[:notice] = 'Image was successfully created.' }
       else
         @status = 'fail'
-        # byebug
         @image.errors.full_messages.each do |msg|
           format.js { flash[:alert] = msg }
         end
@@ -52,12 +50,23 @@ class ImagesController < ApplicationController
   # PATCH/PUT /images/1 or /images/1.json
   def update
     respond_to do |format|
-      if @image.update(image_params)
+      if @image.update(image_params) && params[:image][:file]
+        # Remove current tags
+        # @tags = @image.tags
+        # @tags.each do |tag|
+        #   ImageTag.all.where(tag_id:
+        # end
+
+        @status = 'success'
+        format.js { flash[:notice] = 'Image was successfully updated.' }
+      elsif @image.update(image_params)
         format.html { redirect_to @image, notice: 'Image was successfully updated.' }
         format.json { render :show, status: :ok, location: @image }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @image.errors, status: :unprocessable_entity }
+        @status = 'fail'
+        @image.errors.full_messages.each do |msg|
+          format.js { flash[:alert] = msg }
+        end
       end
     end
   end

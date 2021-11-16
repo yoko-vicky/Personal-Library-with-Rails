@@ -5,8 +5,8 @@
 //     xhr = detail[2];
 //   console.log(detail);
 // }
-console.log('Hi there');
-const updateBtn = document.getElementById('update-image');
-updateBtn.addEventListener('click', () => {
-  console.log('Hi, Yoko');
-});
+// console.log('Hi there');
+// const updateBtn = document.getElementById('update-image');
+// updateBtn.addEventListener('click', () => {
+//   console.log('Hi, Yoko');
+// });
