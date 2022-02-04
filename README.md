@@ -28,10 +28,6 @@ A list of commonly used resources that I find helpful is listed in the acknowled
 - Bootstrap
 - SCSS
 
-## Live Demo
-
-[Live Demo Link](https://bower-test-yokosaka.herokuapp.com/)
-
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
